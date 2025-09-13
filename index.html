@@ -28,14 +28,14 @@
     header {
       background: linear-gradient(135deg, #1e3a8a, #4c1d95);
       color: #ffffff;
-      padding: 20px 0;
+      padding: 15px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 15px;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -47,7 +47,12 @@
       transform: scale(1.05);
       filter: brightness(110%);
     }
-    .theme-toggle {
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .theme-toggle, .hamburger {
       background: none;
       border: none;
       color: #ffffff;
@@ -56,29 +61,15 @@
       padding: 8px;
       transition: color 0.3s ease;
     }
-    .theme-toggle:hover, .theme-toggle:focus {
+    .theme-toggle:hover, .theme-toggle:focus, .hamburger:hover, .hamburger:focus {
       color: #00e5ff;
       outline: none;
     }
-    .theme-toggle:focus {
+    .theme-toggle:focus, .hamburger:focus {
       box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
     }
     .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: #ffffff;
       font-size: 1.5rem;
-      cursor: pointer;
-      padding: 8px;
-      transition: color 0.3s ease;
-    }
-    .hamburger:hover, .hamburger:focus {
-      color: #00e5ff;
-      outline: none;
-    }
-    .hamburger:focus {
-      box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
     }
     .hero {
       text-align: center;
@@ -132,24 +123,37 @@
       box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
     }
     nav {
-      padding: 15px 0;
-      background: rgba(0,0,0,0.2);
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 250px;
+      background: #0a0e17;
+      transform: translateX(100%);
+      z-index: 1000;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.5);
       transition: transform 0.3s ease;
+    }
+    body.light-mode nav {
+      background: #f4f7fa;
+    }
+    nav.active {
+      transform: translateX(0);
     }
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 0 10px;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px 10px;
     }
     nav a {
       color: #ffffff;
       text-decoration: none;
       font-weight: 500;
-      font-size: 1.1rem;
-      padding: 8px 15px;
+      font-size: 1.2rem;
+      padding: 10px 20px;
       border-radius: 50px;
       transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
       display: block;
@@ -170,12 +174,6 @@
     body.light-mode nav a:hover, body.light-mode nav a:focus {
       background: #7c3aed;
       color: #ffffff;
-    }
-    .nav-menu {
-      transition: transform 0.3s ease;
-    }
-    .nav-menu.active {
-      transform: translateX(0);
     }
     section {
       width: 100%;
@@ -445,42 +443,20 @@
     }
     @media (max-width: 768px) {
       .header-top {
-        flex-direction: column;
-        gap: 20px;
-        padding: 0 15px;
+        padding: 0 10px;
       }
       .header-top img {
-        height: 50px;
+        height: 40px;
+      }
+      .header-controls {
+        gap: 8px;
+      }
+      .theme-toggle, .hamburger {
+        font-size: 1.1rem;
+        padding: 6px;
       }
       .hamburger {
         display: block;
-      }
-      nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 250px;
-        background: #0a0e17;
-        transform: translateX(100%);
-        z-index: 1000;
-        padding: 20px;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.5);
-      }
-      body.light-mode nav {
-        background: #f4f7fa;
-      }
-      nav.active {
-        transform: translateX(0);
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px 10px;
-      }
-      nav a {
-        font-size: 1.2rem;
-        padding: 10px 20px;
       }
       .hero {
         padding: 40px 15px;
@@ -530,13 +506,17 @@
       .contact-list {
         font-size: 1rem;
       }
-      .schedule-grid {
-        grid-template-columns: 1fr;
-      }
     }
     @media (max-width: 480px) {
       .header-top img {
-        height: 40px;
+        height: 35px;
+      }
+      .header-controls {
+        gap: 6px;
+      }
+      .theme-toggle, .hamburger {
+        font-size: 1rem;
+        padding: 5px;
       }
       .hero {
         padding: 30px 10px;
@@ -600,7 +580,7 @@
   <header>
     <div class="header-top">
       <img src="image/logo.png" alt="Technovate 2025 Event Logo" loading="lazy" />
-      <div>
+      <div class="header-controls">
         <button class="theme-toggle" aria-label="Toggle between dark and light theme">🌙</button>
         <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
       </div>
