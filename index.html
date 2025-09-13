@@ -63,11 +63,33 @@
     .theme-toggle:focus {
       box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
     }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: color 0.3s ease;
+    }
+    .hamburger:hover, .hamburger:focus {
+      color: #00e5ff;
+      outline: none;
+    }
+    .hamburger:focus {
+      box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
+    }
     .hero {
       text-align: center;
       padding: 60px 20px;
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://source.unsplash.com/random/800x400/?circuit') no-repeat center/cover;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://source.unsplash.com/random/600x300/?circuit') no-repeat center/cover;
       position: relative;
+      animation: fadeInHero 1.5s ease-in-out;
+    }
+    @keyframes fadeInHero {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .hero-content {
       position: relative;
@@ -102,7 +124,7 @@
     }
     .hero .btn:hover, .hero .btn:focus {
       transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0,229,255,0.5);
+      box-shadow: 0 0 25px rgba(0,229,255,0.7);
       background: linear-gradient(135deg, #7c3aed, #00e5ff);
       outline: none;
     }
@@ -112,6 +134,7 @@
     nav {
       padding: 15px 0;
       background: rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
     nav ul {
       list-style: none;
@@ -128,13 +151,14 @@
       font-size: 1.1rem;
       padding: 8px 15px;
       border-radius: 50px;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
       display: block;
       text-align: center;
     }
     nav a:hover, nav a:focus {
       background: #00e5ff;
       color: #0a0e17;
+      transform: scale(1.05);
     }
     nav a:focus {
       outline: 2px solid #00e5ff;
@@ -146,6 +170,12 @@
     body.light-mode nav a:hover, body.light-mode nav a:focus {
       background: #7c3aed;
       color: #ffffff;
+    }
+    .nav-menu {
+      transition: transform 0.3s ease;
+    }
+    .nav-menu.active {
+      transform: translateX(0);
     }
     section {
       width: 100%;
@@ -172,9 +202,11 @@
       color: #00e5ff;
       font-size: 2.5rem;
       font-weight: 700;
+      text-shadow: 0 0 8px rgba(0,229,255,0.3);
     }
     body.light-mode h2 {
       color: #1e3a8a;
+      text-shadow: none;
     }
     h3 {
       text-align: center;
@@ -212,7 +244,7 @@
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(0,229,255,0.4);
+      box-shadow: 0 0 25px rgba(0,229,255,0.5);
     }
     body.light-mode .card:hover {
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -259,7 +291,7 @@
     }
     .btn:hover, .card button:hover, .btn:focus, .card button:focus {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px rgba(0,229,255,0.5);
+      box-shadow: 0 0 25px rgba(0,229,255,0.7);
       background: linear-gradient(135deg, #7c3aed, #00e5ff);
       outline: none;
     }
@@ -290,10 +322,14 @@
       margin-bottom: 15px;
       box-shadow: 0 0 15px rgba(0,229,255,0.2);
       overflow: hidden;
+      transition: transform 0.3s ease;
     }
     body.light-mode .faq-item {
       background: #ffffff;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .faq-item:hover {
+      transform: translateY(-3px);
     }
     .faq-question {
       padding: 15px;
@@ -343,10 +379,16 @@
       text-align: center;
       margin-top: 10px;
       text-shadow: 0 0 10px rgba(0,229,255,0.3);
+      animation: pulse 2s infinite;
     }
     body.light-mode #timer {
       color: #1e3a8a;
       text-shadow: none;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     .schedule-grid {
       display: grid;
@@ -361,10 +403,14 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,229,255,0.2);
       text-align: center;
+      transition: transform 0.3s ease;
     }
     body.light-mode .schedule-card {
       background: #ffffff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .schedule-card:hover {
+      transform: translateY(-3px);
     }
     footer {
       background: #0a0e17;
@@ -380,10 +426,11 @@
     footer a {
       color: #00e5ff;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.2s ease;
     }
     footer a:hover, footer a:focus {
       color: #7c3aed;
+      transform: scale(1.05);
     }
     footer a:focus {
       outline: 2px solid #00e5ff;
@@ -405,6 +452,36 @@
       .header-top img {
         height: 50px;
       }
+      .hamburger {
+        display: block;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 250px;
+        background: #0a0e17;
+        transform: translateX(100%);
+        z-index: 1000;
+        padding: 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+      }
+      body.light-mode nav {
+        background: #f4f7fa;
+      }
+      nav.active {
+        transform: translateX(0);
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 10px;
+      }
+      nav a {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+      }
       .hero {
         padding: 40px 15px;
       }
@@ -417,15 +494,6 @@
       .hero .btn {
         padding: 10px 30px;
         font-size: 1rem;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 10px;
-      }
-      nav a {
-        font-size: 1rem;
-        padding: 8px 15px;
       }
       section {
         padding: 40px 10px;
@@ -467,8 +535,14 @@
       }
     }
     @media (max-width: 480px) {
+      .header-top img {
+        height: 40px;
+      }
+      .hero {
+        padding: 30px 10px;
+      }
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       .hero p {
         font-size: 0.9rem;
@@ -478,8 +552,8 @@
         font-size: 0.85rem;
       }
       nav a {
-        font-size: 0.9rem;
-        padding: 6px 12px;
+        font-size: 1rem;
+        padding: 8px 15px;
       }
       h2 {
         font-size: 1.8rem;
@@ -511,7 +585,7 @@
       .contact-list {
         font-size: 0.9rem;
       }
-      .footer {
+      footer {
         font-size: 0.9rem;
       }
       .social-links a {
@@ -526,7 +600,10 @@
   <header>
     <div class="header-top">
       <img src="image/logo.png" alt="Technovate 2025 Event Logo" loading="lazy" />
-      <button class="theme-toggle" aria-label="Toggle between dark and light theme">🌙</button>
+      <div>
+        <button class="theme-toggle" aria-label="Toggle between dark and light theme">🌙</button>
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      </div>
       <img src="image/ieee_logo_blue.png" alt="IEEE MUIT Student Branch Logo" loading="lazy" />
     </div>
     <div class="hero">
@@ -538,7 +615,7 @@
         <a href="#registration" aria-label="Join Technovate 2025"><button class="btn">Join the Future</button></a>
       </div>
     </div>
-    <nav>
+    <nav class="nav-menu">
       <ul>
         <li><a href="#about" aria-label="About Technovate 2025">About</a></li>
         <li><a href="#subevents" aria-label="Sub-Events">Sub-Events</a></li>
@@ -782,6 +859,25 @@
   </footer>
 
   <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const isExpanded = navMenu.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', isExpanded);
+      hamburger.textContent = isExpanded ? '✕' : '☰';
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.textContent = '☰';
+      });
+    });
+
     // Countdown Timer
     const eventDate = new Date("2025-10-07T00:00:00+05:30").getTime();
     const countdown = setInterval(() => {
@@ -836,12 +932,19 @@
       }
     }
 
-    // Add keyboard accessibility for FAQs
-    document.querySelectorAll('.faq-question').forEach(item => {
+    // Add keyboard accessibility for FAQs and hamburger
+    document.querySelectorAll('.faq-question, .hamburger').forEach(item => {
       item.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          toggleFAQ(item);
+          if (item.classList.contains('faq-question')) {
+            toggleFAQ(item);
+          } else {
+            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+            hamburger.textContent = isExpanded ? '✕' : '☰';
+          }
         }
       });
     });
