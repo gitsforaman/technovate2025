@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Technovate 2025, an IEEE Day celebration at MUIT, Lucknow, on October 7-8, 2025. Join us for cutting-edge technical competitions!">
+  <meta name="keywords" content="Technovate 2025, IEEE Day, MUIT, technical fest, Lucknow, coding, innovation, technology">
+  <meta name="author" content="IEEE Student Branch, MUIT">
+  <title>Technovate 2025 – IEEE Day Celebration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #0a0e17;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    body.light-mode {
+      background: #f4f7fa;
+      color: #1a202c;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #4c1d95);
+      color: #ffffff;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .header-top img {
+      height: 60px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .header-top img:hover {
+      transform: scale(1.05);
+      filter: brightness(110%);
+    }
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: color 0.3s ease;
+    }
+    .theme-toggle:hover, .theme-toggle:focus {
+      color: #00e5ff;
+      outline: none;
+    }
+    .theme-toggle:focus {
+      box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://source.unsplash.com/random/800x400/?circuit') no-repeat center/cover;
+      position: relative;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #00e5ff;
+      text-shadow: 0 0 10px rgba(0,229,255,0.5);
+      text-align: center;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .hero .btn {
+      padding: 12px 40px;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, #00e5ff, #7c3aed);
+      border: none;
+      border-radius: 50px;
+      color: #ffffff;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .hero .btn:hover, .hero .btn:focus {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,229,255,0.5);
+      background: linear-gradient(135deg, #7c3aed, #00e5ff);
+      outline: none;
+    }
+    .hero .btn:focus {
+      box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
+    }
+    nav {
+      padding: 15px 0;
+      background: rgba(0,0,0,0.2);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0 10px;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 8px 15px;
+      border-radius: 50px;
+      transition: background 0.3s ease, color 0.3s ease;
+      display: block;
+      text-align: center;
+    }
+    nav a:hover, nav a:focus {
+      background: #00e5ff;
+      color: #0a0e17;
+    }
+    nav a:focus {
+      outline: 2px solid #00e5ff;
+      outline-offset: 2px;
+    }
+    body.light-mode nav a {
+      color: #1a202c;
+    }
+    body.light-mode nav a:hover, body.light-mode nav a:focus {
+      background: #7c3aed;
+      color: #ffffff;
+    }
+    section {
+      width: 100%;
+      padding: 50px 15px;
+      background: #0a0e17;
+      animation: fadeIn 1s ease-in-out;
+    }
+    body.light-mode section {
+      background: #f4f7fa;
+    }
+    section:nth-child(even) {
+      background: #141a2f;
+    }
+    body.light-mode section:nth-child(even) {
+      background: #e5e7eb;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00e5ff;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    body.light-mode h2 {
+      color: #1e3a8a;
+    }
+    h3 {
+      text-align: center;
+      color: #00e5ff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    body.light-mode h3 {
+      color: #1e3a8a;
+    }
+    .content {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    .card {
+      background: #1a2138;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.light-mode .card {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0,229,255,0.4);
+    }
+    body.light-mode .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00e5ff;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    body.light-mode .card img {
+      border-color: #1e3a8a;
+    }
+    .card img:hover {
+      transform: scale(1.1);
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+    .btn, .card button {
+      margin-top: 15px;
+      padding: 10px 30px;
+      border: none;
+      background: linear-gradient(135deg, #00e5ff, #7c3aed);
+      color: #ffffff;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .btn:hover, .card button:hover, .btn:focus, .card button:focus {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0,229,255,0.5);
+      background: linear-gradient(135deg, #7c3aed, #00e5ff);
+      outline: none;
+    }
+    .btn:focus, .card button:focus {
+      box-shadow: 0 0 0 3px rgba(0,229,255,0.3);
+    }
+    a:has(.btn), a:has(button) {
+      text-decoration: none;
+    }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .contact-list li {
+      margin: 15px 0;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #1a2138;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+      overflow: hidden;
+    }
+    body.light-mode .faq-item {
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .faq-question {
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #00e5ff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    body.light-mode .faq-question {
+      color: #1e3a8a;
+    }
+    .faq-question:hover, .faq-question:focus {
+      background: #2a3555;
+    }
+    body.light-mode .faq-question:hover, body.light-mode .faq-question:focus {
+      background: #e0e7ff;
+    }
+    .faq-question:focus {
+      outline: 2px solid #00e5ff;
+      outline-offset: 2px;
+    }
+    .faq-answer {
+      padding: 0 15px 15px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-weight: 400;
+      display: none;
+    }
+    .faq-answer.active {
+      display: block;
+    }
+    .faq-toggle {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+    .faq-toggle.active {
+      transform: rotate(45deg);
+    }
+    #timer {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #00e5ff;
+      text-align: center;
+      margin-top: 10px;
+      text-shadow: 0 0 10px rgba(0,229,255,0.3);
+    }
+    body.light-mode #timer {
+      color: #1e3a8a;
+      text-shadow: none;
+    }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .schedule-card {
+      background: #1a2138;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+      text-align: center;
+    }
+    body.light-mode .schedule-card {
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #0a0e17;
+      color: #ffffff;
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    body.light-mode footer {
+      background: #1a202c;
+    }
+    footer a {
+      color: #00e5ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:hover, footer a:focus {
+      color: #7c3aed;
+    }
+    footer a:focus {
+      outline: 2px solid #00e5ff;
+      outline-offset: 2px;
+    }
+    .social-links {
+      margin-top: 10px;
+    }
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.1rem;
+    }
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 15px;
+      }
+      .header-top img {
+        height: 50px;
+      }
+      .hero {
+        padding: 40px 15px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .hero .btn {
+        padding: 10px 30px;
+        font-size: 1rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 10px;
+      }
+      nav a {
+        font-size: 1rem;
+        padding: 8px 15px;
+      }
+      section {
+        padding: 40px 10px;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 15px;
+      }
+      .card img {
+        width: 80px;
+        height: 80px;
+      }
+      .btn, .card button {
+        padding: 8px 25px;
+        font-size: 0.9rem;
+      }
+      #timer {
+        font-size: 1.4rem;
+      }
+      .faq-question {
+        font-size: 1.1rem;
+      }
+      .faq-answer {
+        font-size: 1rem;
+      }
+      .contact-list {
+        font-size: 1rem;
+      }
+      .schedule-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
+      .hero .btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .card img {
+        width: 70px;
+        height: 70px;
+      }
+      .btn, .card button {
+        padding: 7px 20px;
+        font-size: 0.85rem;
+      }
+      #timer {
+        font-size: 1.2rem;
+      }
+      .faq-question {
+        font-size: 1rem;
+      }
+      .faq-answer {
+        font-size: 0.9rem;
+      }
+      .contact-list {
+        font-size: 0.9rem;
+      }
+      .footer {
+        font-size: 0.9rem;
+      }
+      .social-links a {
+        font-size: 1rem;
+        margin: 0 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <img src="image/logo.png" alt="Technovate 2025 Event Logo" loading="lazy" />
+      <button class="theme-toggle" aria-label="Toggle between dark and light theme">🌙</button>
+      <img src="image/ieee_logo_blue.png" alt="IEEE MUIT Student Branch Logo" loading="lazy" />
+    </div>
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Technovate 2025</h1>
+        <p>IEEE Day Celebration | 7th & 8th October 2025</p>
+        <p id="timer">🚀 <span id="timer-text"></span></p>
+        <p>Organized by: Maharishi University of Information Technology, Lucknow Campus <br> in association with MUIT IEEE Student Chapter & IQAC</p>
+        <a href="#registration" aria-label="Join Technovate 2025"><button class="btn">Join the Future</button></a>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about" aria-label="About Technovate 2025">About</a></li>
+        <li><a href="#subevents" aria-label="Sub-Events">Sub-Events</a></li>
+        <li><a href="#registration" aria-label="Register for Technovate 2025">Register</a></li>
+        <li><a href="#schedule" aria-label="Event Schedule">Schedule</a></li>
+        <li><a href="#faculty" aria-label="Faculty Coordinator">Faculty</a></li>
+        <li><a href="#executive" aria-label="Student Coordinator">Executive</a></li>
+        <li><a href="#members" aria-label="IEEE Student Branch Members">Members</a></li>
+        <li><a href="#faqs" aria-label="Frequently Asked Questions">FAQs</a></li>
+        <li><a href="#contact" aria-label="Contact Us">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="content">
+      <h2>About Technovate 2025</h2>
+      <p>
+        Technovate 2025 is the premier IEEE Day celebration at Maharishi University of Information Technology (MUIT), Lucknow Campus, set for <strong>7th & 8th October 2025</strong>. This two-day tech fest is your chance to push boundaries, showcase innovation, and compete in thrilling technical challenges. Whether you're a coder, designer, or visionary, Technovate is where ideas come to life!
+      </p>
+      <h3>Venue & Details</h3>
+      <p>
+        📍 <strong>Venue:</strong> Maharishi University of Information Technology, Lucknow Campus <br>
+        School of Engineering & Technology (MSOET) Building, Near IIM Road, Sitapur Road, Lucknow, Uttar Pradesh – 226013 <br><br>
+        🕘 <strong>Dates:</strong> 7th – 8th October 2025, 9:30 AM to 5:00 PM <br><br>
+        🌐 <strong>Mode:</strong> Offline competitions with online support via official channels <br><br>
+        🗺️ <strong>Location:</strong> <a href="https://maps.app.goo.gl/db5qsX5gNhsxXBSb8" target="_blank" aria-label="View venue on Google Maps">View on Google Maps</a>
+      </p>
+      <a href="https://maps.app.goo.gl/db5qsX5gNhsxXBSb8" target="_blank" aria-label="Explore venue on Google Maps"><button class="btn">Explore Venue</button></a>
+    </div>
+  </section>
+
+  <!-- Sub-Events -->
+  <section id="subevents">
+    <div class="content">
+      <h2>Sub-Event Categories</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Blind Coding</h3>
+          <p>Code blindfolded – rely on your logic and instincts!</p>
+          <a href="#rules-blind-coding" target="_blank" aria-label="View rules for Blind Coding"><button>View Rules</button></a>
+        </div>
+        <div class="card">
+          <h3>Project Demonstration</h3>
+          <p>Showcase your groundbreaking software, IoT, or robotics project.</p>
+          <a href="#rules-project-demo" target="_blank" aria-label="View rules for Project Demonstration"><button>View Rules</button></a>
+        </div>
+        <div class="card">
+          <h3>Technical Reel</h3>
+          <p>Create a captivating short video on a tech topic.</p>
+          <a href="#rules-technical-reel" target="_blank" aria-label="View rules for Technical Reel"><button>View Rules</button></a>
+        </div>
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>Build a stunning website from scratch under time pressure.</p>
+          <a href="#rules-web-dev" target="_blank" aria-label="View rules for Web Development"><button>View Rules</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section id="registration">
+    <div class="content">
+      <h2>Join the Tech Revolution</h2>
+      <p>Unleash your potential at Technovate 2025! Open to MUIT students and external participants. Register now to compete and innovate.</p>
+      <a href="#registration-form" target="_blank" aria-label="Register for Technovate 2025"><button class="btn">Register Now</button></a>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule">
+    <div class="content">
+      <h2>Event Schedule</h2>
+      <p>Join us on <strong>7th & 8th October 2025</strong>. Arrive 30 minutes early for your events!</p>
+      <div class="schedule-grid">
+        <div class="schedule-card">
+          <h3>Day 1: 7th October</h3>
+          <p>9:30 AM – Opening Ceremony (Seminar Hall)</p>
+          <p>10:00 AM – Blind Coding (Lab 1)</p>
+          <p>1:00 PM – Lunch Break</p>
+          <p>2:00 PM – Project Demonstration (Seminar Hall)</p>
+        </div>
+        <div class="schedule-card">
+          <h3>Day 2: 8th October</h3>
+          <p>9:30 AM – Technical Reel (Lab 2)</p>
+          <p>11:00 AM – Web Development (Lab 3)</p>
+          <p>2:00 PM – Closing Ceremony & Awards (Seminar Hall)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Coordinator -->
+  <section id="faculty">
+    <div class="content">
+      <h2>Faculty Coordinator</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="image/faculty.jpg" alt="Dr. Peeyush Kumar Pathak" loading="lazy" />
+          <h3>Dr. Peeyush Kumar Pathak</h3>
+          <p>Faculty Coordinator, IEEE Student Branch, MUIT</p>
+          <p>Email: <a href="mailto:peeyush.pathak@muit.ac.in" aria-label="Email Dr. Peeyush Kumar Pathak">peeyush.pathak@muit.ac.in</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Chairperson -->
+  <section id="executive">
+    <div class="content">
+      <h2>Student Coordinator</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="image/myimage.jpeg" alt="Aman Srivastava" loading="lazy" />
+          <h3>Aman Srivastava</h3>
+          <p>Chairperson, IEEE Student Branch</p>
+          <p>Email: <a href="mailto:aman.ieee@muit.ac.in" aria-label="Email Aman Srivastava">aman.ieee@muit.ac.in</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Members -->
+  <section id="members">
+    <div class="content">
+      <h2>IEEE Student Branch Members</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="image/manmohan.jpg" alt="Manmohan Kushwaha" loading="lazy" />
+          <h3>Manmohan Kushwaha</h3>
+          <p><strong>Vice-Chair</strong></p>
+        </div>
+        <div class="card">
+          <img src="image/purnima.jpg" alt="Purnima Yadav" loading="lazy" />
+          <h3>Purnima Yadav</h3>
+          <p><strong>Secretary</strong></p>
+        </div>
+        <div class="card">
+          <img src="image/piyush.jpg" alt="Piyush Tiwari" loading="lazy" />
+          <h3>Piyush Tiwari</h3>
+          <p><strong>Joint Secretary</strong></p>
+        </div>
+        <div class="card">
+          <img src="image/ayush.jpg" alt="Ayush Chaurasiya" loading="lazy" />
+          <h3>Ayush Chaurasiya</h3>
+          <p><strong>Webmaster</strong></p>
+        </div>
+        <div class="card">
+          <img src="image/sumit.jpg" alt="Sumit Singh" loading="lazy" />
+          <h3>Sumit Singh</h3>
+          <p><strong>Treasurer</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faqs">
+    <div class="content">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" role="button" aria-expanded="false" aria-controls="faq1" tabindex="0">
+            <span>Who can participate in Technovate 2025?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer" id="faq1">
+            <p>Technovate 2025 is open to all students from any recognized educational institution. Participants can register individually or in teams, depending on the sub-event.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" role="button" aria-expanded="false" aria-controls="faq2" tabindex="0">
+            <span>Is there a registration fee?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer" id="faq2">
+            <p>Registration fees vary by sub-event. Please check the registration form for detailed fee information.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" role="button" aria-expanded="false" aria-controls="faq3" tabindex="0">
+            <span>What are the prizes for the sub-events?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer" id="faq3">
+            <p>Prizes include certificates, trophies, and potential cash rewards for top performers in each sub-event. Detailed prize information will be shared closer to the event date.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" role="button" aria-expanded="false" aria-controls="faq4" tabindex="0">
+            <span>Can I participate in multiple sub-events?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer" id="faq4">
+            <p>Yes, participants can register for multiple sub-events, provided there are no scheduling conflicts. Check the event schedule for details.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" role="button" aria-expanded="false" aria-controls="faq5" tabindex="0">
+            <span>Will accommodation be provided for participants from other colleges?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer" id="faq5">
+            <p>Currently, no accommodation is being arranged by the organizing team. Outstation participants are advised to manage their own stay nearby. A list of nearby budget hotels and hostels will be shared upon request.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" role="button" aria-expanded="false" aria-controls="faq6" tabindex="0">
+            <span>Will food or refreshments be provided during the event?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer" id="faq6">
+            <p>No, food or refreshments will not be provided by the organizing team. Participants are advised to make their own arrangements for meals and water. A canteen is available on campus, and there are several nearby eateries outside the university premises.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="content">
+      <h2>Contact Us - For Inquiry and Support</h2>
+      <ul class="contact-list">
+        <li><strong>Student Coordinator:</strong> Aman Srivastava – <a href="mailto:aman.ieee@muit.ac.in" aria-label="Email Aman Srivastava">aman.ieee@muit.ac.in</a></li>
+        <li><strong>Faculty Coordinator:</strong> Dr. Peeyush Kumar Pathak – <a href="mailto:peeyush.pathak@muit.ac.in" aria-label="Email Dr. Peeyush Kumar Pathak">peeyush.pathak@muit.ac.in</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Technovate | IEEE Student Branch MUIT | <a href="mailto:ieee@muit.ac.in" aria-label="Email IEEE MUIT">ieee@muit.ac.in</a></p>
+    <div class="social-links">
+      <a href="#x-link" target="_blank" aria-label="Follow us on X">X</a>
+      <a href="#instagram-link" target="_blank" aria-label="Follow us on Instagram">Instagram</a>
+      <a href="#linkedin-link" target="_blank" aria-label="Follow us on LinkedIn">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const eventDate = new Date("2025-10-07T00:00:00+05:30").getTime();
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const timerText = document.getElementById("timer-text");
+      if (timerText) {
+        timerText.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        if (distance < 0) {
+          clearInterval(countdown);
+          timerText.innerHTML = "Event Started!";
+        }
+      }
+    }, 1000);
+
+    // Theme Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      themeToggle.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+      themeToggle.setAttribute('aria-label', document.body.classList.contains('light-mode') ? 'Switch to dark theme' : 'Switch to light theme');
+    });
+
+    // FAQ Accordion
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      const toggle = element.querySelector('.faq-toggle');
+      const isActive = answer.classList.contains('active');
+      
+      document.querySelectorAll('.faq-answer').forEach(item => {
+        item.classList.remove('active');
+        item.style.display = 'none';
+      });
+      document.querySelectorAll('.faq-toggle').forEach(item => {
+        item.classList.remove('active');
+        item.textContent = '+';
+      });
+      document.querySelectorAll('.faq-question').forEach(item => {
+        item.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        answer.classList.add('active');
+        answer.style.display = 'block';
+        toggle.classList.add('active');
+        toggle.textContent = '−';
+        element.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Add keyboard accessibility for FAQs
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFAQ(item);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
